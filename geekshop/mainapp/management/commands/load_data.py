@@ -37,6 +37,6 @@ class Command(BaseCommand):
         products_dict = load_from_json('../../fixtures/products.json')
         for product in products_dict:
             fields = product['fields']
-            category = ProductCategory.objects.get(id=fields.pop('category'))
-            Product.objects.create(id=product['pk'], category=category, **fields)
+            fields['category'] = ProductCategory.objects.get(id=fields.pop('category'))
+            Product.objects.create(id=product['pk'], **fields)
         self.stdout.write("Table products was filled successfully")

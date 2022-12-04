@@ -5,6 +5,8 @@ from django.shortcuts import render
 import json
 from os import path
 
+from mainapp.models import Product, ProductCategory
+
 
 def load_from_json(file_name):
     parent_dir = path.dirname(path.abspath(__file__))
@@ -36,7 +38,8 @@ def products(request):
         'title': 'Mamutov Alim\'s Shop' ,
         'header': 'Welcome to my shop',
         'user': 'Alim',
-        'products': load_from_json('fixtures/goods.json'),
+        'products': Product.objects.all(),
+        'categories': ProductCategory.objects.all(),
     }
     return render(request, 'mainapp/products.html', context)
 

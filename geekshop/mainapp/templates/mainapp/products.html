@@ -16,11 +16,9 @@
 
             <h1 class="my-4">{{ title }}</h1>
             <div class="list-group">
-                <a href="#" class="list-group-item">Новинки</a>
-                <a href="#" class="list-group-item">Одежда</a>
-                <a href="#" class="list-group-item">Обувь</a>
-                <a href="#" class="list-group-item">Аксессуары</a>
-                <a href="#" class="list-group-item">Подарки</a>
+                {% for category in categories %}
+                    <a href="#" class="list-group-item">{{ category.name }}</a>
+                {% endfor %}
             </div>
 
         </div>
@@ -64,7 +62,7 @@
                         <div class="card h-100">
                             <a href="#">
                                 <img class="card-img-top"
-                                     src={% static product.img%}
+                                     src={{ product.image.url }}
                                      alt="">
                             </a>
                             <div class="card-body">
@@ -74,13 +72,16 @@
                                 <h5>{{ product.price }}</h5>
                                 <p class="card-text">{{ product.description }}</p>
                             </div>
+{#                            <div class="card-footer text-center">#}
+{#                                <button type="button" class="{{ product.button_class }}">#}
+{#                                    {% if product.button_class != 'btn btn-outline-danger' %}#}
+{#                                        Отправить в корзину#}
+{#                                        {% else %}#}
+{#                                        Удалить из корзины#}
+{#                                    {% endif %}</button>#}
+{#                            </div>#}
                             <div class="card-footer text-center">
-                                <button type="button" class="{{ product.button_class }}">
-                                    {% if product.button_class != 'btn btn-outline-danger' %}
-                                        Отправить в корзину
-                                        {% else %}
-                                        Удалить из корзины
-                                    {% endif %}</button>
+                                <button type="button" class="btn btn-outline-success">Отправить в корзину</button>
                             </div>
                         </div>
                     </div>
