@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from mainapp.models import Product, ProductCategory
-from django.contrib.auth.models import User
+from authapp.models import User
 from os import path
 import json
 
