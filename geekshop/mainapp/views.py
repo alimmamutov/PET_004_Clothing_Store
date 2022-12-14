@@ -19,7 +19,6 @@ def index(request):
     context = {
         'title': 'GeekShop 111',
         'header': 'Welcome to my shop',
-        'user': 'Alim',
         'products': [
             {'name': 'Худи черного цвета с монограммами adidas Originals', 'price': 200},
             {'name': 'Синяя куртка The North Face', 'price': 300},

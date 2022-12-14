@@ -9,7 +9,7 @@ from authapp.views import register, login
 # from mainapp.views import products, test
 app_name = 'authapp'
 urlpatterns = [
-    path('register/', register, name='regiter'),
+    path('register/', register, name='register'),
     path('login/', login, name='login'),
 ]
 
